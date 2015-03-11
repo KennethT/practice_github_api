@@ -1,18 +1,32 @@
+<div class="container">
+
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <h1><%= form_tag("/search", method: "get") do %>
+      <%= label_tag(:user, "") %>
+      <%= text_field_tag(:user) %>
+      <%= submit_tag("Search Github Screen Name") %></h1>
+      <% end %>
+    </nav>
+    <br><br><br><br><br><br><br>
+
+    <div class="well">
+    <div class="container">
+
+    <div class="col-md-4">
+      <%= image_tag @user.avatar_url, height:"200" %>
+    </div>
+
+    <div class="col-md-8">
+      <h3><%= @user.name %> | Location: <%= @user.location %> | Email: <%= @user.email %></h3>
+      <h3>Created At: <%= @user.created_at %> | Company: <%= @user.company %> </h3>
+    </div>
+  </div>
+  </div>
+
+    <h3>List of Github Repos</h3>
+    <% @user_repos.each do |x| %>
+    <li><%= link_to x[:name], x[:html_url] %></li>
+    <% end %>
 
 
-<%= form_tag("/search", method: "get") do %>
-<%= label_tag(:user, "GitHub User:") %>
-<%= text_field_tag(:user) %>
-<%= submit_tag("Search") %>
-<% end %>
-
-
-
-<%= image_tag @user.avatar_url %>
-<br>
-<h1><%= @user.name %> | Location: <%= @user.location %> | Email: <%= @user.email %></h1>
-<h2>Created At: <%= @user.created_at %> | Company: <%= @user.company %> </h2>
-<h3>List of Github Repos</h3>
-<% @user_repos.each do |x| %>
-<li><%= link_to x[:name], x[:html_url] %></li>
-<% end %>
+</div>
