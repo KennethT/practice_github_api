@@ -10,8 +10,9 @@
 
 <%= image_tag @user.avatar_url %>
 <br>
-<h1><%= @user.name %> | <%= @user.email %><h1>
+<h1><%= @user.name %> | Location: <%= @user.location %> | Email: <%= @user.email %></h1>
+<h2>Created At: <%= @user.created_at %> | Company: <%= @user.company %> </h2>
 <h3>List of Github Repos</h3>
 <% @user_repos.each do |x| %>
-<li><%= x[:name] %></li>
+<li><%= link_to x[:name], x[:html_url] %></li>
 <% end %>
