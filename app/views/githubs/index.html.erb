@@ -1,0 +1,17 @@
+
+
+<%= form_tag("/search", method: "get") do %>
+<%= label_tag(:user, "GitHub User:") %>
+<%= text_field_tag(:user) %>
+<%= submit_tag("Search") %>
+<% end %>
+
+<%= @user.name %>
+<br>
+<%= image_tag @user.avatar_url %>
+<br>
+
+<h1>List of Github Repos</h1>
+<% @user_repos.each do |x| %>
+<li><%= x[:name] %></li>
+<% end %>

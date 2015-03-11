@@ -1,13 +1,10 @@
 class GithubsController < ApplicationController
 
-  def repolist
-    @user_repos = Github.new().user_repos("KennethT")
 
-  end
-
-  def avatar
-    @user_repos = Github.new().user_repos("KennethT")
-
+  def index
+    @gh = Github.new
+    @user = @gh.client.user(params[:user])
+    @user_repos = Github.new().user_repos(params[:user])
   end
 
 end

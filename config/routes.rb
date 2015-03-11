@@ -7,6 +7,7 @@ root 'githubs#index'
 
 get '/githubs/avatar'
 get '/githubs/repolist'
+get '/search' => 'githubs#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
